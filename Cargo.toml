@@ -1,0 +1,18 @@
+[workspace]
+members = ["app", "wasm", "server"]
+default-members = ["app", "server"]
+resolver = "2"
+
+#[profile.release]
+#lto = true
+
+[profile.release.package.wasm]
+opt-level = 's'
+
+[[workspace.metadata.leptos]]
+name = "meta-test"
+bin-package = "server"
+lib-package = "wasm"
+
+site-root = "target/site"
+assets-dir = "assets"
