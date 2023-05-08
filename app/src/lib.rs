@@ -8,9 +8,9 @@ pub fn AppSsr(cx: Scope) -> impl IntoView {
 
     view! {cx,
         <Title text="Script SSR test" />
-        <Script src="https://cdn.jsdelivr.net/npm/vega@5" async_="false" />
-        <Script src="https://cdn.jsdelivr.net/npm/vega-lite@5" async_="false" />
-        <Script src="https://cdn.jsdelivr.net/npm/vega-embed@6" async_="false" />
+        <Script src="https://cdn.jsdelivr.net/npm/vega@5" />
+        <Script src="https://cdn.jsdelivr.net/npm/vega-lite@5"  />
+        <Script src="https://cdn.jsdelivr.net/npm/vega-embed@6" />
 
         <Vega />
     }
@@ -29,9 +29,9 @@ pub fn App(cx: Scope) -> impl IntoView {
         // <Link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/vega-lite@5" />
         // <Link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/vega-embed@6" />
 
-        <Script src="https://cdn.jsdelivr.net/npm/vega@5" async_="false" />
-        <Script src="https://cdn.jsdelivr.net/npm/vega-lite@5" async_="false" />
-        <Script src="https://cdn.jsdelivr.net/npm/vega-embed@6" async_="false" />
+        <Script src="https://cdn.jsdelivr.net/npm/vega@5" />
+        <Script src="https://cdn.jsdelivr.net/npm/vega-lite@5" />
+        <Script src="https://cdn.jsdelivr.net/npm/vega-embed@6" />
 
         // <script src="https://cdn.jsdelivr.net/npm/vega@5" ></script>
         // <script src="https://cdn.jsdelivr.net/npm/vega-lite@5" ></script>
