@@ -1,8 +1,8 @@
 use std::sync::Arc;
 
-use app::App;
+use app::{App, AppSsr};
 
-use axum::{Extension, Router, routing::{post}};
+use axum::{Extension, Router, routing::{post, get}};
 use leptos_axum::{generate_route_list, LeptosRoutes};
 use leptos::{view, get_configuration, log};
 use tower_http::services::ServeDir;
@@ -15,6 +15,7 @@ async fn main() {
     let routes = generate_route_list(|cx| view! { cx, <App/> }).await;
 
     let app = Router::new()
+        .route("/ssr", get(vega_ssr))
         .route("/api/*fn_name", post(leptos_axum::handle_server_fns))
         .leptos_routes(leptos_options.clone(), routes, |cx| view! { cx, <App/> })
         .nest_service("/pkg", ServeDir::new("target/site/pkg"))
@@ -27,5 +28,11 @@ async fn main() {
         .serve(app.into_make_service())
         .await
         .unwrap()
+}
+
+async fn vega_ssr() -> axum::response::Html<String> {
+    axum::response::Html(
+        leptos::ssr::render_to_string(|cx| view! { cx, <AppSsr/> })
+    )
 }
 

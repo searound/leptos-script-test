@@ -3,6 +3,21 @@ use leptos_meta::{provide_meta_context, Link, Script, Style, Title};
 use leptos_router::{Route, Router, Routes};
 
 #[component]
+pub fn AppSsr(cx: Scope) -> impl IntoView {
+    provide_meta_context(cx);
+
+    view! {cx,
+        <Title text="Script SSR test" />
+        <Script src="https://cdn.jsdelivr.net/npm/vega@5" async_="false" />
+        <Script src="https://cdn.jsdelivr.net/npm/vega-lite@5" async_="false" />
+        <Script src="https://cdn.jsdelivr.net/npm/vega-embed@6" async_="false" />
+
+        <Vega />
+    }
+}
+
+
+#[component]
 pub fn App(cx: Scope) -> impl IntoView {
     provide_meta_context(cx);
 
