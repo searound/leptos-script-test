@@ -25,7 +25,7 @@ pub fn App(cx: Scope) -> impl IntoView {
         <Router>
             <main>
                 <Routes>
-                    <Route path="/vega" view=|cx| view! { cx, <Vega /> } />
+                    <Route path="" view=|cx| view! { cx, <Vega /> } />
                 </Routes>
             </main>
         </Router>

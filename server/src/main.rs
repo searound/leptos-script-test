@@ -18,6 +18,7 @@ async fn main() {
         .route("/api/*fn_name", post(leptos_axum::handle_server_fns))
         .leptos_routes(leptos_options.clone(), routes, |cx| view! { cx, <App/> })
         .nest_service("/pkg", ServeDir::new("target/site/pkg"))
+        .fallback_service(ServeDir::new("target/site"))
         .layer(Extension(Arc::new(leptos_options)));
 
     log!("listening on http://{}", &addr);
